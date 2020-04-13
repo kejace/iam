@@ -35,6 +35,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-extract-image-colors',
+      options: {
+        extensions: ['jpg', 'png']
+      }
+    },
+    {
       resolve: `gatsby-source-shopify`,
       options: {
         // The domain name of your Shopify shop. This is required.

@@ -31,6 +31,9 @@ const ProductGrid = () => {
                 id
                 originalSrc
                 localFile {
+                  colors {
+                    ...GatsbyImageColors
+                  }
                   childImageSharp {
                     fluid(maxWidth: 910) {
                       ...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -61,10 +64,14 @@ const ProductGrid = () => {
           <Product key={id} >
             <Link to={`/product/${handle}/`}>
               {firstImage && firstImage.localFile &&
-                (<Img
-                  fluid={firstImage.localFile.childImageSharp.fluid}
-                  alt={handle}
-                />)}
+                // (<Img
+                //   fluid={firstImage.localFile.childImageSharp.fluid}
+                //   alt={handle}
+                // />)
+                (<div style={{ backgroundColor: firstImage.localFile.colors.lightVibrant, height: '40vh' }}>
+                  <Img fluid={firstImage.localFile.childImageSharp.fluid} />
+                </div>)
+              }
             </Link>
             <Title>{title}</Title>
             <PriceTag>{getPrice(firstVariant.price)}</PriceTag>

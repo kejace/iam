@@ -24,11 +24,13 @@ const ProductPage = ({ data }) => {
         <TwoColumnGrid>
           <GridLeft>
             {product.images.map(image => (
-              <Img
-                fluid={image.localFile.childImageSharp.fluid}
-                key={image.id}
-                alt={product.title}
-              />
+              <div style={{ backgroundColor: image.localFile.colors.vibrant, height: '60vh' }}
+              key={image.id}>
+                <Img
+                  fluid={image.localFile.childImageSharp.fluid}
+                  alt={product.title}
+                />
+              </div>
             ))}
           </GridLeft>
           <GridRight>
@@ -84,6 +86,9 @@ export const query = graphql`
         originalSrc
         id
         localFile {
+          colors {
+            ...GatsbyImageColors
+          }
           childImageSharp {
             fluid(maxWidth: 910) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
