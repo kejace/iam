@@ -1,0 +1,22 @@
+language: node_js
+dist: trusty
+sudo: required
+node_js: stable
+install:
+- npm install
+script:
+- gatsby build
+
+deploy:
+  - provider: s3
+    bucket: navel.la
+    skip_cleanup: true
+    region: us-west-1
+    access_key_id:
+      secure: keayGVkNnnt1fQUWw8XSiAuBQGpStyiVsZnc9a/JpMRCV2ULlHw6CgXKPd5GQJTpKS3t5svrQxdmumQcSHSBRxOgxmZCJu+q8jfLdQ415BhmiDkmMUYGiARz6gMkRYE7YMXvskPWUUfjHdm0PogK52LJdiJSV8v76gZmTBSUSQUSOmUB13/jUfuGkxOzYVbMw+RPD6CR2dA/ZXpu20x24vrLivjFSAQAIi6FiR0YzytNK6qfmKAZEFqMrKf/F8pXCcLClpCb8MPECtX/IhLWirDKSncl21d4rjW/2yKVJKyp+v9vflSDNeTnniVYyn08uqxL/BUxIh67H6AibRsbE7gGIfiZW8Op0jBZNZ/BG/MfZxsa3wDe9Vnnkl63kJkZaoP+er40fqZCxoZkBcy5gNEtuUVLM5ekUVpmquVjo+ZxJy6XaHxJoZ7ceYBBkj+PJWkC19d8iTzNmPL+C2TpCey4eKPlnTH9GakugksDOJ8Bwmd7xjOcxljNUDZ9d/jB+nq9hagJf7nx7I07IwGy4KkkbTnTE5UhEDK9FLnHa2BLcC/blwEkQPkyBgMkaoOuQOcHpchHVBAM68spgfSRUntY2++wJFrHKa25IciZFdh3+87c0DKuNlMfygsRLyczYF9ZHyi5JujEPj+nGd3CPWdAO0V95k+yFBx9ZP5Bf9c=
+    secret_access_key:
+      secure: LK9BwJR0tyrgq5DLdYaw0Dw5kO46MGTCQ59e+LBMmy6z/BQTJsJQn3EB3VrNyB6ylwms5TLAX7/Wu9Xk8f/lHJ1HHlbr5QrGXnQCmhS+z4lxfabewIqc0TCljipIRUt0M6V3x5oSOlW3sqlWGpDVyz1gFLczn6ESHF6IeNgZ8WTTUbEO8yFhonxIRO11ywvZW5BXwrczHiKeQzUZbP7SIbdvZvgeF55gO6mrlmIXZn2bWj3kDTSwljZvFkHJod/WrqRMZ6gXsIWCAU6i/3UtvmtCZ5dBVZoB1augxygMY3MdYOpuzqQfUAgtapuWAY2HAqQqJ0CehgWhxAM9HPLgqqtX1Skpl/2+8893G9eQ2d0tiZEGZcMHHatS6GQWqa+zMvnWNdjI3ACRnOzX5LxhyyncAN0NrdNuv0jVc1+7vy6L2HSW36zYDVp4nuoV+x1MrkzlExAyddJqXBj11BSMC7uTsXaFtZZAp3pdkCS1MT0wbo8LOeAe90fGkvZQsHJZzdtyhqlVINWugGLi+njlOdXjv1/htHULBRq5+nLEBcYpFY+cvddb8Zj/w3zRpKbWFhSs+ftOWPHK9E56vi6mL/rIGKkzOi0saD1tNGgYVRA2+mGIqsdRBw08dDND8IhsSgtBqr/LzGScm0e9y5OMMnSKzwNDMRRuFZaIwNlIesI=
+    on:
+      branch: master
+    
+
